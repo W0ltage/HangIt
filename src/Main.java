@@ -1,6 +1,12 @@
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("efe");
+		
+		HangmanModel model = new HangmanModel();
+		HangmanView view = new HangmanView();
+		
+		HangmanController controller = new HangmanController(model, view);
+		
+		
 	}
 }

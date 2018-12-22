@@ -37,5 +37,7 @@ public class HangmanView {
 		panel1.add(hard);
 
 		panel1.add(start);
+		
+		frame1.setVisible(true);
 	}
 }

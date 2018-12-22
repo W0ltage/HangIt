@@ -70,7 +70,7 @@ public class HangManGame {
 				word.append("_ ");
 			}
 		}
-
+		
 		JLabel secretWordLabel = answerLabel; 
 		final String w = word.toString();
 		SwingUtilities.invokeLater(new Runnable() {
