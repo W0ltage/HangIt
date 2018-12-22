@@ -1,7 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.Enumeration;
-import java.util.Random;
 
 import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
@@ -15,18 +14,17 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class HangmanView {
-	
+
 	JFrame mainFrame;
 	JPanel firstPanel;
 	ButtonGroup buttonGroup;
 	JButton startButton;
-	
+
 	public HangmanView() {
 		// TODO Auto-generated constructor stub
 		createLoginScreen();
 	}
-	
-	
+
 	public void createLoginScreen() {
 		mainFrame = new JFrame("HangIt Main Menu");
 		mainFrame.setSize(1100, 240);
@@ -55,11 +53,11 @@ public class HangmanView {
 		firstPanel.add(medium);
 		firstPanel.add(hard);
 
-		firstPanel.add(startButton);	
-		
+		firstPanel.add(startButton);
+
 		mainFrame.setVisible(true);
 	}
-	
+
 	public JButton getStartButton() {
 		return startButton;
 	}
@@ -69,7 +67,7 @@ public class HangmanView {
 		return buttonGroup;
 	}
 
-	public void createGameScreen() {
+	public void createGameScreen(String secretWord) {
 		// TODO Auto-generated method stub
 		JFrame game = new JFrame("HangIt Game");
 		game.setSize(1100, 240);
@@ -85,9 +83,9 @@ public class HangmanView {
 		topPanel.add(remainingGuesses);
 		topPanel.add(guessedLetters);
 		topPanel.add(answerLabel);
-		drawAnswer(answerLabel);
+		drawAnswer(answerLabel, secretWord);
 		game.add(topPanel);
-		
+
 		JPanel answerPanel = new JPanel();
 		answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.LINE_AXIS));
 		JTextField answerField = new JTextField();
@@ -97,39 +95,34 @@ public class HangmanView {
 		competitorPanel.add(BorderLayout.CENTER, answerField);
 		competitorPanel.add(BorderLayout.EAST, guess);
 		answerPanel.add(competitorPanel);
-		
+
 		game.add(answerPanel);
-		
+
 		JPanel buttonsPanel = new JPanel();
 		char ch = (char) 65;
-		for(int i = 0; i < 26; i++) {
-			buttonsPanel.add(new JButton(ch+ ""));
+		for (int i = 0; i < 26; i++) {
+			buttonsPanel.add(new JButton(ch + ""));
 			ch++;
 		}
 		game.add(buttonsPanel);
 
 		game.setVisible(true);
 	}
-	
-	public void drawAnswer(JLabel answerLabel) {
-		Random r = new Random();
-		boolean lettersRevealed[] = new boolean[10];
-		String answer = "";
-		for (int i = 0; i < r.nextInt(15); i++) { 
-			answer += (char) r.nextInt();
-		}
+
+	public void drawAnswer(JLabel answerLabel, String secretword) {
+		boolean lettersRevealed[] = new boolean[secretword.length()];
 		StringBuilder word = new StringBuilder();
-		for (int i = 0; i < r.nextInt(15); i++) { 
+		for (int i = 0; i < secretword.length(); i++) {
 
 			if (lettersRevealed[i]) {
-				String s = answer.charAt(i) + " ";
+				String s = secretword.charAt(i) + " ";
 				word.append(s);
 			} else {
 				word.append("_ ");
 			}
 		}
-		
-		JLabel secretWordLabel = answerLabel; 
+
+		JLabel secretWordLabel = answerLabel;
 		final String w = word.toString();
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -138,16 +131,16 @@ public class HangmanView {
 			}
 		});
 	}
-	
+
 	public String getSelectedButtonText() {
-        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
+		for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+			AbstractButton button = buttons.nextElement();
 
-            if (button.isSelected()) {
-                return button.getText();
-            }
-        }
+			if (button.isSelected()) {
+				return button.getText();
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 }

@@ -29,7 +29,7 @@ public class HangManGame {
 		topPanel.add(answerLabel);
 		drawAnswer(answerLabel);
 		game.add(topPanel);
-		
+
 		JPanel answerPanel = new JPanel();
 		answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.LINE_AXIS));
 		JTextField answerField = new JTextField();
@@ -39,13 +39,13 @@ public class HangManGame {
 		competitorPanel.add(BorderLayout.CENTER, answerField);
 		competitorPanel.add(BorderLayout.EAST, guess);
 		answerPanel.add(competitorPanel);
-		
+
 		game.add(answerPanel);
-		
+
 		JPanel buttonsPanel = new JPanel();
 		char ch = (char) 65;
-		for(int i = 0; i < 26; i++) {
-			buttonsPanel.add(new JButton(ch+ ""));
+		for (int i = 0; i < 26; i++) {
+			buttonsPanel.add(new JButton(ch + ""));
 			ch++;
 		}
 		game.add(buttonsPanel);
@@ -57,11 +57,11 @@ public class HangManGame {
 		Random r = new Random();
 		boolean lettersRevealed[] = new boolean[10];
 		String answer = "";
-		for (int i = 0; i < r.nextInt(15); i++) { 
+		for (int i = 0; i < r.nextInt(15); i++) {
 			answer += (char) r.nextInt();
 		}
 		StringBuilder word = new StringBuilder();
-		for (int i = 0; i < r.nextInt(15); i++) { 
+		for (int i = 0; i < r.nextInt(15); i++) {
 
 			if (lettersRevealed[i]) {
 				String s = answer.charAt(i) + " ";
@@ -70,8 +70,8 @@ public class HangManGame {
 				word.append("_ ");
 			}
 		}
-		
-		JLabel secretWordLabel = answerLabel; 
+
+		JLabel secretWordLabel = answerLabel;
 		final String w = word.toString();
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
