@@ -1,5 +1,5 @@
 
-public class Model {
+public class HangmanModel {
 	private String secretWord;
 	
 }

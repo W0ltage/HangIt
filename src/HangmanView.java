@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class View {
+public class HangmanView {
 	
 	public void createLoginScreen() {
 		JFrame frame1 = new JFrame("HangIt Main Menu");
