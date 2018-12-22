@@ -9,4 +9,8 @@ public class HangmanController {
 		this.model = model;
 		this.view = view;
 	}
+	
+	public void startGame() {
+		view.createLoginScreen();
+	}
 }

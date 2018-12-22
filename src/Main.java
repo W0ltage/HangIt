@@ -6,7 +6,7 @@ public class Main {
 		HangmanView view = new HangmanView();
 		
 		HangmanController controller = new HangmanController(model, view);
-		
+		controller.startGame();
 		
 	}
 }
