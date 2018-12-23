@@ -14,7 +14,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import com.sun.xml.internal.messaging.saaj.soap.JpegDataContentHandler;
 
 public class HangmanView {
 	JFrame endGame;
@@ -25,6 +24,8 @@ public class HangmanView {
 	JButton startButton;
 	JButton guess;
 	JTextField answerField;
+	JButton[] answerButtons = new JButton[26];
+	
 	public HangmanView() {
 		// TODO Auto-generated constructor stub
 		createLoginScreen();
@@ -97,58 +98,67 @@ public class HangmanView {
 		guess = new JButton("Guess the letter");
 		JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new GridLayout(2, 13));
-        JButton b1 = new JButton("A");
-        JButton b2 = new JButton("B");
-        JButton b3 = new JButton("C");
-        JButton b4 = new JButton("D");
-        JButton b5 = new JButton("E");
-        JButton b6 = new JButton("F");
-        JButton b7 = new JButton("G");
-        JButton b8 = new JButton("H");
-        JButton b9 = new JButton("I");
-        JButton b10 = new JButton("J");
-        JButton b11 = new JButton("K");
-        JButton b12 = new JButton("L");
-        JButton b13 = new JButton("M");
-        JButton b14 = new JButton("N");
-        JButton b15 = new JButton("O");
-        JButton b16 = new JButton("P");
-        JButton b17 = new JButton("Q");
-        JButton b18 = new JButton("R");
-        JButton b19 = new JButton("S");
-        JButton b20 = new JButton("T");
-        JButton b21 = new JButton("U");
-        JButton b22 = new JButton("V");
-        JButton b23 = new JButton("W");
-        JButton b24 = new JButton("X");
-        JButton b25 = new JButton("Y");
-        JButton b26 = new JButton("Z");
-        buttonsPanel.add(b1);
-        buttonsPanel.add(b2);
-        buttonsPanel.add(b3);
-        buttonsPanel.add(b4);
-        buttonsPanel.add(b5);
-        buttonsPanel.add(b6);
-        buttonsPanel.add(b7);
-        buttonsPanel.add(b8);
-        buttonsPanel.add(b9);
-        buttonsPanel.add(b10);
-        buttonsPanel.add(b11);
-        buttonsPanel.add(b12);
-        buttonsPanel.add(b13);
-        buttonsPanel.add(b14);
-        buttonsPanel.add(b15);
-        buttonsPanel.add(b16);
-        buttonsPanel.add(b17);
-        buttonsPanel.add(b18);
-        buttonsPanel.add(b19);
-        buttonsPanel.add(b20);
-        buttonsPanel.add(b21);
-        buttonsPanel.add(b22);
-        buttonsPanel.add(b23);
-        buttonsPanel.add(b24);
-        buttonsPanel.add(b25);
-        buttonsPanel.add(b26);
+        
+        for(int i = 0; i<26; i++) {
+        	char word = (char) ('A'+ i);
+        	String sWord = word + "";
+        	JButton button = new JButton(sWord);
+        	answerButtons[i]= button;
+        	buttonsPanel.add(button);
+        }
+//        
+//        JButton b1 = new JButton("A");
+//        JButton b2 = new JButton("B");
+//        JButton b3 = new JButton("C");
+//        JButton b4 = new JButton("D");
+//        JButton b5 = new JButton("E");
+//        JButton b6 = new JButton("F");
+//        JButton b7 = new JButton("G");
+//        JButton b8 = new JButton("H");
+//        JButton b9 = new JButton("I");
+//        JButton b10 = new JButton("J");
+//        JButton b11 = new JButton("K");
+//        JButton b12 = new JButton("L");
+//        JButton b13 = new JButton("M");
+//        JButton b14 = new JButton("N");
+//        JButton b15 = new JButton("O");
+//        JButton b16 = new JButton("P");
+//        JButton b17 = new JButton("Q");
+//        JButton b18 = new JButton("R");
+//        JButton b19 = new JButton("S");
+//        JButton b20 = new JButton("T");
+//        JButton b21 = new JButton("U");
+//        JButton b22 = new JButton("V");
+//        JButton b23 = new JButton("W");
+//        JButton b24 = new JButton("X");
+//        JButton b25 = new JButton("Y");
+//        JButton b26 = new JButton("Z");
+//        buttonsPanel.add(b1);
+//        buttonsPanel.add(b2);
+//        buttonsPanel.add(b3);
+//        buttonsPanel.add(b4);
+//        buttonsPanel.add(b5);
+//        buttonsPanel.add(b6);
+//        buttonsPanel.add(b7);
+//        buttonsPanel.add(b8);
+//        buttonsPanel.add(b9);
+//        buttonsPanel.add(b10);
+//        buttonsPanel.add(b11);
+//        buttonsPanel.add(b12);
+//        buttonsPanel.add(b13);
+//        buttonsPanel.add(b14);
+//        buttonsPanel.add(b15);
+//        buttonsPanel.add(b16);
+//        buttonsPanel.add(b17);
+//        buttonsPanel.add(b18);
+//        buttonsPanel.add(b19);
+//        buttonsPanel.add(b20);
+//        buttonsPanel.add(b21);
+//        buttonsPanel.add(b22);
+//        buttonsPanel.add(b23);
+//        buttonsPanel.add(b24);
+//        buttonsPanel.add(b25);
+//        buttonsPanel.add(b26);
 
 
 		JPanel competitorPanel = new JPanel(new BorderLayout());

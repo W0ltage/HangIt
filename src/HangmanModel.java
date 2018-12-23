@@ -29,7 +29,7 @@ public class HangmanModel {
 		this.difficultyType = difficultyType;
 		secretWord = getSecretWordFromJSON();
 	}
-	
+
 	public String getSecretWordFromJSON() {
 		return "poyraz";
 	}
