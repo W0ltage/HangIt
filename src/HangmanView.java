@@ -14,8 +14,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class HangmanView {
+import com.sun.xml.internal.messaging.saaj.soap.JpegDataContentHandler;
 
+public class HangmanView {
+	JFrame endGame;
 	JFrame mainFrame;
 	JFrame game;
 	JPanel firstPanel;
@@ -222,4 +224,29 @@ public class HangmanView {
 		// TODO Auto-generated method stub
 		JOptionPane.showMessageDialog(game, "YOU  LOSE THE GAME","LOSE",JOptionPane.ERROR_MESSAGE);
 	}
+	public void createEndGameScreen(){
+		endGame = new JFrame("HangIt END GAME");
+		endGame.setSize(1100, 240);
+		endGame.setLocationRelativeTo(null);
+		endGame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JPanel gamePanel = new JPanel();
+		endGame.add(gamePanel);
+		
+		JButton restart = new JButton("Restart");
+		restart.setSize(50, 30);
+		restart.setLocation(50, 200);
+		gamePanel.add(restart);
+		
+		JButton quit = new JButton("Quit");
+		quit.setSize(50, 30);
+		quit.setLocation(50, 200);
+		gamePanel.add(quit);
+		
+		endGame.setVisible(true);
+
+		
+		
+	}
+	
 }

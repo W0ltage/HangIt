@@ -38,8 +38,11 @@ public class HangmanController implements ActionListener {
 				System.out.println(guessWord);
 				if (model.getSecretWord().equals(guessWord)) {
 					view.winPopUp();
+					
+					view.createEndGameScreen();
 				} else {
 					view.losePopUp();
+					view.createEndGameScreen();
 				}
 			}
 		});
