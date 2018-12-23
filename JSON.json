@@ -1,7 +1,6 @@
 [
   {
-    "difficulty": "easy",
-    "words":[
+    "easy":[
       "cool",
       "flash",
       "banjo",
@@ -105,8 +104,7 @@
     ]
   },
   {
-    "difficulty": "medium",
-    "words":[
+    "medium":[
       "amazing",
       "tabletennis",
       "awkward",
@@ -210,8 +208,7 @@
     ]
   },
   {
-    "difficulty": "hard",
-    "words":[
+    "hard":[
       "cool",
       "flash",
       "bagpipes",
