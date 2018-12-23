@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 
 public class HangmanController implements ActionListener {
@@ -27,7 +28,12 @@ public class HangmanController implements ActionListener {
 		if (diffuculty == null)
 			return;
 		System.out.println(diffuculty);
-		model.setDifficultyType(diffuculty);
+		try {
+			model.setDifficultyType(diffuculty);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		view.createGameScreen(model.getSecretWord());
 		for(int i = 0; i  < view.getAnswerButtons().length; i++) {
 			view.getAnswerButtons()[i].addActionListener(new ActionListener() {

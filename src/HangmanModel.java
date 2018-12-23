@@ -1,13 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.util.Iterator;
 import java.util.Random;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import java.util.Scanner;
 
 public class HangmanModel {
 	private String secretWord;
@@ -46,14 +40,31 @@ public class HangmanModel {
 		return difficultyType;
 	}
 
-	public void setDifficultyType(String difficultyType) {
+	public void setDifficultyType(String difficultyType) throws FileNotFoundException {
 		this.difficultyType = difficultyType;
 		secretWord = getSecretWordFromFile();
 		appearLetters = new boolean[secretWord.length()];
 	}
 
-	public String getSecretWordFromFile() {
+	public String getSecretWordFromFile() throws FileNotFoundException {
 		// get text from text file
+		Random random = new Random();
+		int rnd = random.nextInt(99) + 1;
+		Scanner scanner;
+		if (difficultyType.equals("Easy")) { 
+			scanner = new Scanner(new FileReader("/home/poyraz/eclipse-workspace/HangIt/src/easy.txt"));
+		}else if (difficultyType.equals("Medium")) {
+			scanner = new Scanner(new FileReader("medium.txt"));
+		}else {
+			scanner = new Scanner(new FileReader("hard.txt"));
+		}
+		while (scanner.hasNext()) {
+			rnd--;
+			if (rnd == 0) {
+				return scanner.nextLine();
+			}
+		}
+		
 		return "error";
 	}
 
