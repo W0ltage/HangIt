@@ -8,6 +8,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -16,10 +17,12 @@ import javax.swing.SwingUtilities;
 public class HangmanView {
 
 	JFrame mainFrame;
+	JFrame game;
 	JPanel firstPanel;
 	ButtonGroup buttonGroup;
 	JButton startButton;
-
+	JButton guess;
+	JTextField answerField;
 	public HangmanView() {
 		// TODO Auto-generated constructor stub
 		createLoginScreen();
@@ -69,7 +72,7 @@ public class HangmanView {
 
 	public void createGameScreen(String secretWord) {
 		// TODO Auto-generated method stub
-		JFrame game = new JFrame("HangIt Game");
+		game = new JFrame("HangIt Game");
 		game.setSize(1100, 240);
 		game.setLocationRelativeTo(null);
 		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,8 +91,8 @@ public class HangmanView {
 
 		JPanel answerPanel = new JPanel();
 		answerPanel.setLayout(new BoxLayout(answerPanel, BoxLayout.LINE_AXIS));
-		JTextField answerField = new JTextField();
-		JButton guess = new JButton("Guess the letter");
+		answerField = new JTextField();
+		guess = new JButton("Guess the letter");
 
 		JPanel competitorPanel = new JPanel(new BorderLayout());
 		competitorPanel.add(BorderLayout.CENTER, answerField);
@@ -104,9 +107,17 @@ public class HangmanView {
 			buttonsPanel.add(new JButton(ch + ""));
 			ch++;
 		}
-		game.add(buttonsPanel);
+		//game.add(buttonsPanel);
 
 		game.setVisible(true);
+	}
+
+	public JButton getGuess() {
+		return guess;
+	}
+
+	public JTextField getAnswerField() {
+		return answerField;
 	}
 
 	public void drawAnswer(JLabel answerLabel, String secretword) {
@@ -142,5 +153,15 @@ public class HangmanView {
 		}
 
 		return null;
+	}
+
+	public void winPopUp() {
+		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(game, "YOU  WON THE GAME");
+	}
+
+	public void losePopUp() {
+		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(game, "YOU  LOSE THE GAME","LOSE",JOptionPane.ERROR_MESSAGE);
 	}
 }
