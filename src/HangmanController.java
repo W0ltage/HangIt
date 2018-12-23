@@ -1,6 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class HangmanController implements ActionListener {
 
 	private HangmanModel model;
@@ -17,7 +18,6 @@ public class HangmanController implements ActionListener {
 
 	public void startGame() {
 		view.createLoginScreen();
-
 	}
 
 	@Override
@@ -29,6 +29,16 @@ public class HangmanController implements ActionListener {
 		System.out.println(diffuculty);
 		model.setDifficultyType(diffuculty);
 		view.createGameScreen(model.getSecretWord());
+		for(int i = 0; i  < view.getAnswerButtons().length; i++) {
+			view.getAnswerButtons()[i].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		}
 		view.getGuess().addActionListener(new ActionListener() {
 
 			@Override
