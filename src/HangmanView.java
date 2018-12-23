@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 
 public class HangmanView {
+
 	JFrame endGame;
 	JFrame mainFrame;
 	JFrame game;
@@ -188,6 +189,10 @@ public class HangmanView {
 
 	public JTextField getAnswerField() {
 		return answerField;
+	}
+	
+	public JButton[] getAnswerButtons() {
+		return answerButtons;
 	}
 
 	public void drawAnswer(JLabel answerLabel, String secretword) {
