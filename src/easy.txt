@@ -1,100 +1,100 @@
 cool
 flash
 banjo
- crypt
-      gypsy
-      oxygen
-      pajama
-      twelfth
-      unzip
-      waxy
-      wildebeest
-      yacht
-      zealeous
-      zigzagging
-      zippy
-      zombie
-      jump
-      climb
-      run
-      jogging
-      unworthy
-      whiskey
-      zipper
-      microwave
-      jackpot
-      nightclub
-      jinx
-      joking
-      flopping
-      thriftless
-      gossip
-      razzmatazz
-      strength
-      yummy
-      wizard
-      staff
-      syndrome
-      nowadays
-      jawbreaker
-      galvanize
-      fluffiness
-      euouae
-      faking
-      flapjack
-      foxglove
-      frazzled
-      quizzes
-      fixable
-      mystify
-      yachtsman
-      wristwatch
-      queue
-      icebox
-      keyhole
-      gabby
-      exhaust
-      extract
-      flying
-      swimming
-      dying
-      killing
-      crying
-      sobering
-      fire
-      water
-      wood
-      coke
-      fanta
-      sprite
-      ice
-      lemon
-      tea
-      solid
-      liquid
-      gas
-      unzip
-      transcript
-      stronghold
-      quorum
-      flyby
-      funny
-      angry
-      fast
-      furious
-      murdering
-      genocide
-      suicide
-      pesticide
-      battle
-      arcade
-      easy
-      medium
-      hard
-      bring
-      horse
-      cat
-      dog
-      diego
-      lopez
-      gum
+crypt
+gypsy
+oxygen
+pajama
+twelfth
+unzip
+waxy
+wildebeest
+yacht
+zealeous
+zigzagging
+zippy
+zombie
+jump
+climb
+run
+jogging
+unworthy
+whiskey
+zipper
+microwave
+jackpot
+nightclub
+jinx
+joking
+flopping
+thriftless
+gossip
+razzmatazz
+strength
+yummy
+wizard
+staff
+syndrome
+nowadays
+jawbreaker
+galvanize
+fluffiness
+euouae
+faking
+flapjack
+foxglove
+frazzled
+quizzes
+fixable
+mystify
+yachtsman
+wristwatch
+queue
+icebox
+keyhole
+gabby
+exhaust
+extract
+flying
+swimming
+dying
+killing
+crying
+sobering
+fire
+water
+wood
+coke
+fanta
+sprite
+ice
+lemon
+tea
+solid
+liquid
+gas
+unzip
+transcript
+stronghold
+quorum
+flyby
+funny
+angry
+fast
+furious
+murdering
+genocide
+suicide
+pesticide
+battle
+arcade
+easy
+medium
+hard
+bring
+horse
+cat
+dog
+diego
+lopez
+gum

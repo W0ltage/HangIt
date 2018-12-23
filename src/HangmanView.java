@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 
+
+
 public class HangmanView {
 
 	JFrame endGame;
@@ -26,6 +28,8 @@ public class HangmanView {
 	JButton guess;
 	JTextField answerField;
 	JButton[] answerButtons = new JButton[26];
+	JLabel remainingGuesses;
+	JLabel guessedLetters;
 	
 	public HangmanView() {
 		// TODO Auto-generated constructor stub
@@ -83,8 +87,8 @@ public class HangmanView {
 		game.setLayout(new GridLayout(3, 1));
 
 		JPanel topPanel = new JPanel();
-		JLabel remainingGuesses = new JLabel("# of remaining letter guesses: ");
-		JLabel guessedLetters = new JLabel("# of letters already guessed: ");
+		remainingGuesses = new JLabel("# of remaining letter guesses: ");
+		guessedLetters = new JLabel("# of letters already guessed: ");
 		JLabel answerLabel = new JLabel();
 		topPanel.setLayout(new GridLayout(3, 1));
 		topPanel.add(remainingGuesses);
@@ -263,5 +267,15 @@ public class HangmanView {
 		
 		
 	}
+
+	public void updateNumberOfGuess(int guessAttempt) {
+		// TODO Auto-generated method stub
+		remainingGuesses.setText( guessAttempt + "# of remaining letter guesses:");
+		guessedLetters.setText( 6 - guessAttempt +" # of letters already guessed: ");
+		remainingGuesses.paintImmediately(remainingGuesses.getVisibleRect());
+		guessedLetters.paintImmediately(guessedLetters.getVisibleRect());
+
+	}
+
 	
 }

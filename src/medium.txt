@@ -1,100 +1,100 @@
-      amazing
-      tabletennis
-      awkward
-      bungler
-      croquet
-      Dwarwes
-      hyphen
-      ivory
-      jazzy
-      jiffy
-      jinx
-      rogue
-      sphinx
-      squawk
-      swiwel
-      toady
-      gnostic
-      menemonic
-      matrix
-      grogginess
-      flash
-      ivy
-      jaywalk
-      kazoo
-      knapsack
-      luxury
-      megahertz
-      gigahertz
-      pshaw
-      quartz
-      quiz
-      onyx
-      puzzling
-      woozy
-      zlich
-      unknown
-      subway
-      railway
-      crash
-      accident
-      road
-      avoid
-      refrain
-      prevent
-      xylophone
-      youthful
-      marquis
-      jovial
-      jaundice
-      galaxy
-      gizmo
-      buffoon
-      boxcar
-      layout
-      axiom
-      banjo
-      bikini
-      cockiness
-      cycle
-      dizzying
-      glyph
-      latrogenic
-      juicy
-      schnapps
-      buckaroo
-      transgress
-      uptown
-      voodoo
-      waltz
-      stymied
-      kazoo
-      rhurab
-      psyche
-      gabby
-      larynx
-      triphthong
-      vixen
-      abrupt
-      wavy
-      witchcraft
-      wild
-      voyeurism
-      flapjack
-      buffalo
-      axiom
-      numbskull
-      phlegm
-      lucky
-      bandwagon
-      rickshaw
-      quips
-      glowworm
-      blizzard
-      azure
-      scratch
-      askew
-      flash
-      blitz
-      glaour
-      duplex
+amazing
+tabletennis
+awkward
+bungler
+croquet
+Dwarwes
+hyphen
+ivory
+jazzy
+jiffy
+jinx
+rogue
+sphinx
+squawk
+swiwel
+toady
+gnostic
+menemonic
+matrix
+grogginess
+flash
+ivy
+jaywalk
+kazoo
+knapsack
+luxury
+megahertz
+gigahertz
+pshaw
+quartz
+quiz
+onyx
+puzzling
+woozy
+zlich
+unknown
+subway
+railway
+crash
+accident
+road
+avoid
+refrain
+prevent
+xylophone
+youthful
+marquis
+jovial
+jaundice
+galaxy
+gizmo
+buffoon
+boxcar
+layout
+axiom
+banjo
+bikini
+cockiness
+cycle
+dizzying
+glyph
+latrogenic
+juicy
+schnapps
+buckaroo
+transgress
+uptown
+voodoo
+waltz
+stymied
+kazoo
+rhurab
+psyche
+gabby
+larynx
+triphthong
+vixen
+abrupt
+wavy
+witchcraft
+wild
+voyeurism
+flapjack
+buffalo
+axiom
+numbskull
+phlegm
+lucky
+bandwagon
+rickshaw
+quips
+glowworm
+blizzard
+azure
+scratch
+askew
+flash
+blitz
+glaour
+duplex

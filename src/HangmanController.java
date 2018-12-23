@@ -41,7 +41,12 @@ public class HangmanController implements ActionListener {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					// TODO Auto-generated method stub
-					
+					boolean result = model.guessLetter((arg0.getActionCommand().toCharArray()[0]));
+					if (result) {
+						
+					}else {
+						//disable button
+					}
 				}
 			});
 		}
@@ -52,10 +57,11 @@ public class HangmanController implements ActionListener {
 				// TODO Auto-generated method stub
 				guessWord = view.getAnswerField().getText();
 				System.out.println(guessWord);
-				if (model.getSecretWord().equals(guessWord)) {
+				if (model.guessWord(guessWord)) {
 					view.winPopUp();
 					view.createEndGameScreen();
-				} else {
+				} else if(model.getGuessAttempt() == 0) {
+					view.updateNumberOfGuess(model.getGuessAttempt());
 					view.losePopUp();
 					view.createEndGameScreen();
 				}
