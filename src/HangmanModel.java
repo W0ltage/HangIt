@@ -3,7 +3,6 @@ import java.io.FileReader;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class HangmanModel {
 	private String secretWord;
 	private int wordLength;
@@ -11,7 +10,7 @@ public class HangmanModel {
 	private int guessAttempt = 6;
 	private boolean[] appearLetters;
 
-	public boolean isCorrectLetter( char ch) {
+	public boolean isCorrectLetter(char ch) {
 		for (int i = 0; i < secretWord.length(); i++) {
 			if (ch == secretWord.charAt(i)) {
 				return true;
@@ -55,11 +54,11 @@ public class HangmanModel {
 		Random random = new Random();
 		int rnd = random.nextInt(99) + 1;
 		Scanner scanner;
-		if (difficultyType.equals("Easy")) { 
+		if (difficultyType.equals("Easy")) {
 			scanner = new Scanner(new FileReader("/home/poyraz/eclipse-workspace/HangIt/src/easy.txt"));
-		}else if (difficultyType.equals("Medium")) {
+		} else if (difficultyType.equals("Medium")) {
 			scanner = new Scanner(new FileReader("/home/poyraz/eclipse-workspace/HangIt/src/medium.txt"));
-		}else {
+		} else {
 			scanner = new Scanner(new FileReader("/home/poyraz/eclipse-workspace/HangIt/src/hard.txt"));
 		}
 		while (scanner.hasNext()) {
@@ -75,9 +74,9 @@ public class HangmanModel {
 		}
 		guessAttempt--;
 		return false;
-		
+
 	}
-	
+
 	public int getGuessAttempt() {
 		return guessAttempt;
 	}
@@ -88,10 +87,25 @@ public class HangmanModel {
 		int index = returnIndexOfLetter(letter);
 		if (!result) {
 			guessAttempt--;
-		}else {
-			appearLetters[index] = true;
+		} else {
+			for(int i = 0; i < secretWord.length(); i++) {
+				if (secretWord.toCharArray()[i] == letter) {
+					appearLetters[index] = true;
+				}
+			}
 		}
 		return result;
+	}
+	
+	public boolean isWordFound() {
+		for(int i = 0 ; i < appearLetters.length; i++) {
+			if (appearLetters[i]) {
+				
+			}else {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

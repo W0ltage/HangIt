@@ -14,9 +14,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-
-
-
 public class HangmanView {
 
 	JFrame endGame;
@@ -30,7 +27,11 @@ public class HangmanView {
 	JButton[] answerButtons = new JButton[26];
 	JLabel remainingGuesses;
 	JLabel guessedLetters;
-	
+	JLabel secretWordLabel;
+	String secret;
+	JButton quit;
+	JButton restart;
+
 	public HangmanView() {
 		// TODO Auto-generated constructor stub
 		createLoginScreen();
@@ -80,6 +81,7 @@ public class HangmanView {
 
 	public void createGameScreen(String secretWord) {
 		// TODO Auto-generated method stub
+		secret = secretWord;
 		game = new JFrame("HangIt Game");
 		game.setSize(1100, 240);
 		game.setLocationRelativeTo(null);
@@ -102,88 +104,24 @@ public class HangmanView {
 		answerField = new JTextField();
 		guess = new JButton("Guess the letter");
 		JPanel buttonsPanel = new JPanel();
-        buttonsPanel.setLayout(new GridLayout(2, 13));
-        
-        for(int i = 0; i<26; i++) {
-        	char word = (char) ('A'+ i);
-        	String sWord = word + "";
-        	JButton button = new JButton(sWord);
-        	answerButtons[i]= button;
-        	buttonsPanel.add(button);
-        }
-//        
-//        JButton b1 = new JButton("A");
-//        JButton b2 = new JButton("B");
-//        JButton b3 = new JButton("C");
-//        JButton b4 = new JButton("D");
-//        JButton b5 = new JButton("E");
-//        JButton b6 = new JButton("F");
-//        JButton b7 = new JButton("G");
-//        JButton b8 = new JButton("H");
-//        JButton b9 = new JButton("I");
-//        JButton b10 = new JButton("J");
-//        JButton b11 = new JButton("K");
-//        JButton b12 = new JButton("L");
-//        JButton b13 = new JButton("M");
-//        JButton b14 = new JButton("N");
-//        JButton b15 = new JButton("O");
-//        JButton b16 = new JButton("P");
-//        JButton b17 = new JButton("Q");
-//        JButton b18 = new JButton("R");
-//        JButton b19 = new JButton("S");
-//        JButton b20 = new JButton("T");
-//        JButton b21 = new JButton("U");
-//        JButton b22 = new JButton("V");
-//        JButton b23 = new JButton("W");
-//        JButton b24 = new JButton("X");
-//        JButton b25 = new JButton("Y");
-//        JButton b26 = new JButton("Z");
-//        buttonsPanel.add(b1);
-//        buttonsPanel.add(b2);
-//        buttonsPanel.add(b3);
-//        buttonsPanel.add(b4);
-//        buttonsPanel.add(b5);
-//        buttonsPanel.add(b6);
-//        buttonsPanel.add(b7);
-//        buttonsPanel.add(b8);
-//        buttonsPanel.add(b9);
-//        buttonsPanel.add(b10);
-//        buttonsPanel.add(b11);
-//        buttonsPanel.add(b12);
-//        buttonsPanel.add(b13);
-//        buttonsPanel.add(b14);
-//        buttonsPanel.add(b15);
-//        buttonsPanel.add(b16);
-//        buttonsPanel.add(b17);
-//        buttonsPanel.add(b18);
-//        buttonsPanel.add(b19);
-//        buttonsPanel.add(b20);
-//        buttonsPanel.add(b21);
-//        buttonsPanel.add(b22);
-//        buttonsPanel.add(b23);
-//        buttonsPanel.add(b24);
-//        buttonsPanel.add(b25);
-//        buttonsPanel.add(b26);
+		buttonsPanel.setLayout(new GridLayout(2, 13));
 
+		for (int i = 0; i < 26; i++) {
+			char word = (char) ('a' + i);
+			String sWord = word + "";
+			JButton button = new JButton(sWord);
+			answerButtons[i] = button;
+			buttonsPanel.add(button);
+		}
 
 		JPanel competitorPanel = new JPanel(new BorderLayout());
 		competitorPanel.add(BorderLayout.CENTER, answerField);
 		competitorPanel.add(BorderLayout.EAST, guess);
-		competitorPanel.add(BorderLayout.SOUTH,buttonsPanel);
+		competitorPanel.add(BorderLayout.SOUTH, buttonsPanel);
 		answerPanel.add(competitorPanel);
-		
-		
 
 		game.add(answerPanel);
 
-		/*JPanel buttonsPanel = new JPanel();
-		char ch = (char) 65;
-		for (int i = 0; i < 26; i++) {
-			buttonsPanel.add(new JButton(ch + ""));
-			ch++;
-		}
-		game.add(buttonsPanel);
-*/
 		game.setVisible(true);
 	}
 
@@ -194,7 +132,7 @@ public class HangmanView {
 	public JTextField getAnswerField() {
 		return answerField;
 	}
-	
+
 	public JButton[] getAnswerButtons() {
 		return answerButtons;
 	}
@@ -212,7 +150,7 @@ public class HangmanView {
 			}
 		}
 
-		JLabel secretWordLabel = answerLabel;
+		secretWordLabel = answerLabel;
 		final String w = word.toString();
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -241,41 +179,63 @@ public class HangmanView {
 
 	public void losePopUp() {
 		// TODO Auto-generated method stub
-		JOptionPane.showMessageDialog(game, "YOU  LOSE THE GAME","LOSE",JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(game, "YOU  LOSE THE GAME", "LOSE", JOptionPane.ERROR_MESSAGE);
 	}
-	public void createEndGameScreen(){
+
+	public void createEndGameScreen() {
 		endGame = new JFrame("HangIt END GAME");
 		endGame.setSize(1100, 240);
 		endGame.setLocationRelativeTo(null);
 		endGame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JPanel gamePanel = new JPanel();
 		endGame.add(gamePanel);
-		
-		JButton restart = new JButton("Restart");
+
+		restart = new JButton("Restart");
 		restart.setSize(50, 30);
 		restart.setLocation(50, 200);
 		gamePanel.add(restart);
-		
-		JButton quit = new JButton("Quit");
+
+		quit = new JButton("Quit");
 		quit.setSize(50, 30);
 		quit.setLocation(50, 200);
 		gamePanel.add(quit);
-		
+
 		endGame.setVisible(true);
 
-		
-		
 	}
 
 	public void updateNumberOfGuess(int guessAttempt) {
 		// TODO Auto-generated method stub
-		remainingGuesses.setText( guessAttempt + "# of remaining letter guesses:");
-		guessedLetters.setText( 6 - guessAttempt +" # of letters already guessed: ");
+		remainingGuesses.setText(guessAttempt + "# of remaining letter guesses:");
+		guessedLetters.setText(6 - guessAttempt + " # of letters already guessed: ");
 		remainingGuesses.paintImmediately(remainingGuesses.getVisibleRect());
 		guessedLetters.paintImmediately(guessedLetters.getVisibleRect());
 
 	}
 
-	
+	public void updateSecretWord(char letter) {
+		String result = "";
+		char[] secretWordArray = secret.toCharArray();
+		char[] charArray = secretWordLabel.getText().toCharArray();
+		for (int i = 0; i < secretWordArray.length; i++) {
+			if (secretWordArray[i] == letter) {
+				result = result + letter;
+			} else {
+				result = result + charArray[i];
+			}
+		}
+		secretWordLabel.setText(result);
+		secretWordLabel.paintImmediately(secretWordLabel.getVisibleRect());
+	}
+
+	public void disableButton(char c) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i <answerButtons.length; i++) {
+			if (answerButtons[i].getText().toCharArray()[0] == c) {
+				answerButtons[i].setEnabled(false);
+			}
+		}
+	}
+
 }

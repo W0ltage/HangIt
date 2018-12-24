@@ -4,7 +4,7 @@ public class Main {
 
 		HangmanModel model = new HangmanModel();
 		HangmanView view = new HangmanView();
-
+		System.out.println("e");
 		HangmanController controller = new HangmanController(model, view);
 
 	}

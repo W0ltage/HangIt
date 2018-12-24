@@ -2,7 +2,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
-
 public class HangmanController implements ActionListener {
 
 	private HangmanModel model;
@@ -35,19 +34,52 @@ public class HangmanController implements ActionListener {
 			e1.printStackTrace();
 		}
 		view.createGameScreen(model.getSecretWord());
-		for(int i = 0; i  < view.getAnswerButtons().length; i++) {
+		for (int i = 0; i < view.getAnswerButtons().length; i++) {
 			view.getAnswerButtons()[i].addActionListener(new ActionListener() {
-				
+
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					// TODO Auto-generated method stub
+
 					boolean result = model.guessLetter((arg0.getActionCommand().toCharArray()[0]));
+					view.updateNumberOfGuess(model.getGuessAttempt());
+					if (model.getGuessAttempt() == 0) {
+						view.updateNumberOfGuess(model.getGuessAttempt());
+						view.losePopUp();
+						view.createEndGameScreen();
+						view.quit.addActionListener(new ActionListener() {
+
+							@Override
+							public void actionPerformed(ActionEvent arg0) {
+								// TODO Auto-generated method stub
+								view.game.dispose();
+								view.mainFrame.dispose();
+								view.endGame.dispose();
+							}
+						});
+					}
 					if (result) {
-						
-					}else {
-						//disable button
+						view.updateSecretWord(arg0.getActionCommand().toCharArray()[0]);
+					} else {
+						view.disableButton(arg0.getActionCommand().toCharArray()[0]);
+						// disable button
+					}
+					if (model.isWordFound()) {
+						view.winPopUp();
+						view.createEndGameScreen();
+						view.quit.addActionListener(new ActionListener() {
+
+							@Override
+							public void actionPerformed(ActionEvent arg0) {
+								// TODO Auto-generated method stub
+								view.game.dispose();
+								view.mainFrame.dispose();
+								view.endGame.dispose();
+							}
+						});
 					}
 				}
+
 			});
 		}
 		view.getGuess().addActionListener(new ActionListener() {
@@ -55,15 +87,34 @@ public class HangmanController implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				guessWord = view.getAnswerField().getText();
 				System.out.println(guessWord);
 				if (model.guessWord(guessWord)) {
 					view.winPopUp();
 					view.createEndGameScreen();
-				} else if(model.getGuessAttempt() == 0) {
+					view.quit.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent arg0) {
+							// TODO Auto-generated method stub
+							view.game.dispose();
+							view.mainFrame.dispose();
+							view.endGame.dispose();
+						}
+					});
+				} else if (model.getGuessAttempt() == 0) {
 					view.updateNumberOfGuess(model.getGuessAttempt());
 					view.losePopUp();
 					view.createEndGameScreen();
+					view.quit.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent arg0) {
+							// TODO Auto-generated method stub
+							view.game.dispose();
+							view.mainFrame.dispose();
+							view.endGame.dispose();
+						}
+					});
 				}
 			}
 		});
